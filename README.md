@@ -18,10 +18,10 @@
 10. Fill from coin inputs and click `swap`
 
 Modules
-- MintCoins.move - module that init 10 new coins - Minerals, EnergyCrystals, Gasolineium, OrganicBiomass, PlasmaCores, NeutroniumAlloy, DarkMatterResidue, RefinedPlasmoid, Hypersteel, BioluminescentFiber with different initial balances
-- SwapCoins.move - main swap module, where you can swap 1-1, 2-1 and 2-2 coin pairs
+- mint_coins.move - module that init 10 new coins - Minerals, EnergyCrystals, Gasolineium, OrganicBiomass, PlasmaCores, NeutroniumAlloy, DarkMatterResidue, RefinedPlasmoid, Hypersteel, BioluminescentFiber with different initial balances
+- swap_coins.move - main swap module, where you can swap 1-1, 2-1 and 2-2 coin pairs
 
-SwapCoins.move
+swap_coins.move
 
 ## Entrypoints
 
@@ -244,6 +244,6 @@ try {
 
 SwapCoins module deployed on testnet [here](https://explorer.aptoslabs.com/account/0xe70c32df1098d374bd2094e0e8be2154f5d385f31d01e174cb929d71e282b50a?network=testnet)
 
-Simple Diagram with all methods inside SwapCoins.move:
+Simple Diagram with all methods inside swap_coins.move:
 ![alt text](https://github.com/proxycapital/AptosDexV1/blob/main/dexDiagram.png)
 
