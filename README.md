@@ -242,7 +242,7 @@ try {
 }
 ```
 
-SwapCoins module deployed on testnet [here](https://explorer.aptoslabs.com/account/0xe70c32df1098d374bd2094e0e8be2154f5d385f31d01e174cb929d71e282b50a?network=testnet)
+SwapCoins module deployed on testnet [here](https://explorer.aptoslabs.com/account/0xecea4a4dca5110d757d5ef3f95b86a374efd1439d4d89a66f746588cd9789123?network=testnet)
 
 Simple Diagram with all methods inside swap_coins.move:
 ![alt text](https://github.com/proxycapital/AptosDexV1/blob/main/dexDiagram.png)
