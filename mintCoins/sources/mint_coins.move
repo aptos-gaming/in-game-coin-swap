@@ -1,9 +1,6 @@
 module owner_addr::mint_coins {
   use std::signer;
-
   use aptos_framework::managed_coin;
-
-  const ENO_PERMISSION_TO_MINT: u64 = 1;
 
   // Basic resources
   struct Minerals {}
