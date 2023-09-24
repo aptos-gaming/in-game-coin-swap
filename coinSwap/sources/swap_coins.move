@@ -377,23 +377,12 @@ module owner_addr::swap_coins {
     coin::transfer<Coin_a>(creator, @owner_addr, coin_a_reserves);
     coin::transfer<Coin_b>(creator, @owner_addr, coin_b_reserves);
 
-    let coins_from = vector::empty<TypeInfo>();
-    vector::push_back<TypeInfo>(&mut coins_from, coin_a_type_info);
-    
-    let coins_to = vector::empty<TypeInfo>();
-    vector::push_back<TypeInfo>(&mut coins_to, coin_b_type_info);
-    
-    let coins_from_name = vector::empty<String>();
-    vector::push_back<String>(&mut coins_from_name, coin_a_name);
-    
-    let coins_to_name = vector::empty<String>();
-    vector::push_back<String>(&mut coins_to_name, coin_b_name);
-    
-    let coins_from_reserves = vector::empty<u64>();
-    vector::push_back<u64>(&mut coins_from_reserves, coin_a_reserves);
-    
-    let coins_to_reserves = vector::empty<u64>();
-    vector::push_back<u64>(&mut coins_to_reserves, coin_b_reserves);
+    let coins_from = vector[coin_a_type_info];    
+    let coins_to = vector[coin_b_type_info];
+    let coins_from_name = vector[coin_a_name];
+    let coins_to_name = vector[coin_b_name];    
+    let coins_from_reserves = vector[coin_a_reserves];    
+    let coins_to_reserves = vector[coin_b_reserves];
 
     let pair_meta = PairMeta {
       coins_from,
@@ -466,26 +455,12 @@ module owner_addr::swap_coins {
     coin::transfer<Coin_b>(creator, @owner_addr, coin_b_reserves);
     coin::transfer<Coin_c>(creator, @owner_addr, coin_c_reserves);
 
-    let coins_from = vector::empty<TypeInfo>();
-    vector::push_back<TypeInfo>(&mut coins_from, coin_a_type_info);
-    vector::push_back<TypeInfo>(&mut coins_from, coin_b_type_info);
-    
-    let coins_to = vector::empty<TypeInfo>();
-    vector::push_back<TypeInfo>(&mut coins_to, coin_c_type_info);
-    
-    let coins_from_name = vector::empty<String>();
-    vector::push_back<String>(&mut coins_from_name, coin_a_name);
-    vector::push_back<String>(&mut coins_from_name, coin_b_name);
-    
-    let coins_to_name = vector::empty<String>();
-    vector::push_back<String>(&mut coins_to_name, coin_c_name);
-    
-    let coins_from_reserves = vector::empty<u64>();
-    vector::push_back<u64>(&mut coins_from_reserves, coin_a_reserves);
-    vector::push_back<u64>(&mut coins_from_reserves, coin_b_reserves);
-    
-    let coins_to_reserves = vector::empty<u64>();
-    vector::push_back<u64>(&mut coins_to_reserves, coin_c_reserves);
+    let coins_from = vector[coin_a_type_info, coin_b_type_info];
+    let coins_to = vector[coin_c_type_info];    
+    let coins_from_name = vector[coin_a_name, coin_b_name];
+    let coins_to_name = vector[coin_c_name];
+    let coins_from_reserves = vector[coin_a_reserves, coin_b_reserves];
+    let coins_to_reserves = vector[coin_c_reserves];
 
     let pair_meta = PairMeta {
       coins_from,
@@ -567,29 +542,12 @@ module owner_addr::swap_coins {
     coin::transfer<Coin_c>(creator, @owner_addr, coin_c_reserves);
     coin::transfer<Coin_d>(creator, @owner_addr, coin_d_reserves);
 
-    let coins_from = vector::empty<TypeInfo>();
-    vector::push_back<TypeInfo>(&mut coins_from, coin_a_type_info);
-    vector::push_back<TypeInfo>(&mut coins_from, coin_b_type_info);
-    
-    let coins_to = vector::empty<TypeInfo>();
-    vector::push_back<TypeInfo>(&mut coins_to, coin_c_type_info);
-    vector::push_back<TypeInfo>(&mut coins_to, coin_d_type_info);
-    
-    let coins_from_name = vector::empty<String>();
-    vector::push_back<String>(&mut coins_from_name, coin_a_name);
-    vector::push_back<String>(&mut coins_from_name, coin_b_name);
-    
-    let coins_to_name = vector::empty<String>();
-    vector::push_back<String>(&mut coins_to_name, coin_c_name);
-    vector::push_back<String>(&mut coins_to_name, coin_d_name);
-    
-    let coins_from_reserves = vector::empty<u64>();
-    vector::push_back<u64>(&mut coins_from_reserves, coin_a_reserves);
-    vector::push_back<u64>(&mut coins_from_reserves, coin_b_reserves);
-    
-    let coins_to_reserves = vector::empty<u64>();
-    vector::push_back<u64>(&mut coins_to_reserves, coin_c_reserves);
-    vector::push_back<u64>(&mut coins_to_reserves, coin_d_reserves);
+    let coins_from = vector[coin_a_type_info, coin_b_type_info];
+    let coins_to = vector[coin_c_type_info, coin_d_type_info];
+    let coins_from_name = vector[coin_a_name, coin_b_name];
+    let coins_to_name = vector[coin_c_name, coin_d_name];
+    let coins_from_reserves = vector[coin_a_reserves, coin_b_reserves];
+    let coins_to_reserves = vector[coin_c_reserves, coin_d_reserves];
 
     let pair_meta = PairMeta {
       coins_from,
@@ -670,17 +628,10 @@ module owner_addr::swap_coins {
     assert!(coin_a_name == coin_a_name_meta, EINVALID_COIN_TYPE);
     assert!(coin_b_name == coin_b_name_meta, EINVALID_COIN_TYPE);
 
-    let coins_from_name_vector = vector::empty<String>();
-    vector::push_back(&mut coins_from_name_vector, coin_a_name);
-    
-    let coins_to_name_vector = vector::empty<String>();
-    vector::push_back(&mut coins_to_name_vector, coin_b_name);
-
-    let coins_from_amount_vector = vector::empty<u64>();
-    vector::push_back(&mut coins_from_amount_vector, coin_amount_a);
-    
-    let coins_to_amount_vector = vector::empty<u64>();
-    vector::push_back(&mut coins_to_amount_vector, deposit_coin_amount);
+    let coins_from_name_vector = vector[coin_a_name];
+    let coins_to_name_vector = vector[coin_b_name];
+    let coins_from_amount_vector = vector[coin_amount_a];    
+    let coins_to_amount_vector = vector[deposit_coin_amount];
 
     // trigger swap event
     event::emit_event<SwapEvent>(
@@ -761,19 +712,10 @@ module owner_addr::swap_coins {
     assert!(coin_b_name == coin_b_name_meta, EINVALID_COIN_TYPE);
     assert!(coin_c_name == coin_c_name_meta, EINVALID_COIN_TYPE);
 
-    let coins_from_name_vector = vector::empty<String>();
-    vector::push_back(&mut coins_from_name_vector, coin_a_name);
-    vector::push_back(&mut coins_from_name_vector, coin_b_name);
-    
-    let coins_to_name_vector = vector::empty<String>();
-    vector::push_back(&mut coins_to_name_vector, coin_c_name);
-
-    let coins_from_amount_vector = vector::empty<u64>();
-    vector::push_back(&mut coins_from_amount_vector, coin_amount_a);
-    vector::push_back(&mut coins_from_amount_vector, coin_amount_b);
-    
-    let coins_to_amount_vector = vector::empty<u64>();
-    vector::push_back(&mut coins_to_amount_vector, deposit_coin_amount);
+    let coins_from_name_vector = vector[coin_a_name, coin_b_name];
+    let coins_to_name_vector = vector[coin_c_name];
+    let coins_from_amount_vector = vector[coin_amount_a, coin_amount_b];
+    let coins_to_amount_vector = vector[deposit_coin_amount];
     
     // trigger swap event
     event::emit_event<SwapEvent>(
@@ -865,21 +807,10 @@ module owner_addr::swap_coins {
     assert!(coin_c_name == coin_c_name_meta, EINVALID_COIN_TYPE);
     assert!(coin_d_name == coin_d_name_meta, EINVALID_COIN_TYPE);
 
-    let coins_from_name_vector = vector::empty<String>();
-    vector::push_back(&mut coins_from_name_vector, coin_a_name);
-    vector::push_back(&mut coins_from_name_vector, coin_b_name);
-    
-    let coins_to_name_vector = vector::empty<String>();
-    vector::push_back(&mut coins_to_name_vector, coin_c_name);
-    vector::push_back(&mut coins_to_name_vector, coin_d_name);
-
-    let coins_from_amount_vector = vector::empty<u64>();
-    vector::push_back(&mut coins_from_amount_vector, coin_amount_a);
-    vector::push_back(&mut coins_from_amount_vector, coin_amount_b);
-    
-    let coins_to_amount_vector = vector::empty<u64>();
-    vector::push_back(&mut coins_to_amount_vector, deposit_coin_amount_a);
-    vector::push_back(&mut coins_to_amount_vector, deposit_coin_amount_b);
+    let coins_from_name_vector = vector[coin_a_name, coin_b_name];
+    let coins_to_name_vector = vector[coin_c_name, coin_d_name];
+    let coins_from_amount_vector = vector[coin_amount_a, coin_amount_b];
+    let coins_to_amount_vector = vector[deposit_coin_amount_a, deposit_coin_amount_b];
     
     // trigger swap event
     event::emit_event<SwapEvent>(
